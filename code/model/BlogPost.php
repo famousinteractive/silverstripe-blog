@@ -217,7 +217,7 @@ class BlogPost extends Page
             $authorField = ListboxField::create(
                 'Authors',
                 _t('BlogPost.Authors', 'Authors'),
-                $self->getCandidateAuthors()->map()->toArray()
+                [], //$self->getCandidateAuthors()->map()->toArray() ==> Make everything so slow than it's crashing (memroy exhausted)
             )->setMultiple(true);
 
             $authorNames = TextField::create(
